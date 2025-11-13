@@ -1,0 +1,21 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nextcloud
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/foxoffire33/nextcloud-argocd"
+    targetRevision: HEAD
+    path: "manifests"
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: delaparra-cloud
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
