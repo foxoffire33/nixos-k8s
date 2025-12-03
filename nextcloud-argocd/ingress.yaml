@@ -1,3 +1,30 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ingress-nginx
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ingress-nginx
+  namespace: ingress-nginx
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingress-nginx-controller
+  namespace: ingress-nginx
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ingress-nginx-admission
+  namespace: ingress-nginx
+type: Opaque
+data:
+  cert: $(openssl rand -base64 1000 | tr -d '\n')
+  key: $(openssl rand -base64 1000 | tr -d '\n')
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:

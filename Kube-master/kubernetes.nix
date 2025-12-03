@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  kubeMasterIP = "192.168.122.204";
+  kubeMasterIP = "192.168.122.173";
   kubeMasterHostname = "api.kube";
   kubeMasterAPIServerPort = 6443;
 in
@@ -24,6 +24,7 @@ in
     masterAddress = kubeMasterHostname;
     apiserverAddress = "https://${kubeMasterHostname}:${toString kubeMasterAPIServerPort}";
     easyCerts = true;
+    etcd.enable = true;
     apiserver = {
       securePort = kubeMasterAPIServerPort;
       advertiseAddress = kubeMasterIP;
