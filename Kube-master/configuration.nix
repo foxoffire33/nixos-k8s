@@ -3,7 +3,8 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
+      ./kubernetes.nix,
+      ./desktop.nix
     ];
 
   # Bootloader.
