@@ -1,12 +1,11 @@
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 metadata:
-  name: pv-nextcloud
+  name: pvc-nextcloud
 spec:
-  capacity:
-    storage: 10Gi
   accessModes:
     - ReadWriteOnce
-  hostPath:
-    path: /mnt/data/delaparra-cloud/nextcloud
-  persistentVolumeReclaimPolicy: Retain
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: local-path
