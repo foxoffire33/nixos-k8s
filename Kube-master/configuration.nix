@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./kubernetes.nix,
+      ./kubernetes.nix
       ./desktop.nix
     ];
 
