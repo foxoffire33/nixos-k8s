@@ -6,9 +6,11 @@ resources:
   - postgres/secret.yaml
   - postgres/deployment.yaml
   - postgres/service.yaml
+  - postgres/pv.yaml
   - postgres/pvc.yaml
 # Nextcloud
   - nextcloud/deployment.yaml
   - nextcloud/service.yaml
   - nextcloud/ingress.yaml
+  - nextcloud/pv.yaml
   - nextcloud/pvc.yaml
